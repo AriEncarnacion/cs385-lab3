@@ -9,7 +9,8 @@ import { ShoppingList } from "./components/ShoppingList";
 function App() {
   return (
     <div>
-      <p>Replace me with your ShoppingList component</p>
+      <h1>Encarnacion Lab03</h1>
+      <ShoppingList />
     </div>
   );
 }
