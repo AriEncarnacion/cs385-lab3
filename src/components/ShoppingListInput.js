@@ -4,15 +4,21 @@ import * as React from "react";
 
 export function ShoppingListInput(props) {
   // onChange handler example:
-  // const handleChange = (e) => {
-  //   setState(e.target.value);
-  // }
-  const [inputs] = React.useState("");
+  const [input, setInput] = React.useState("");
+
+  const handleChange = e => {
+    setInput(e.target.value);
+  };
 
   return (
     <div>
-      <input />
-      <button />
+      <input onChange={handleChange} value={input} />
+      <button
+        onClick={function(e) {
+          props.onAdd(input);
+          setInput("");
+        }}
+      />
     </div>
   );
 }

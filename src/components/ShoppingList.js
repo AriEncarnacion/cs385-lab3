@@ -6,13 +6,18 @@ import { ShoppingListItem } from "./ShoppingListItem";
 // This component renders a <ul> with its children being
 // an array of ShoppingListItems
 export function ShoppingList(props) {
-  const [items] = React.useState(["turkey"]);
+  const [items, setItems] = React.useState(["turkey"]);
   const listItems = items.map(listItem => <ShoppingListItem name={listItem} />);
 
   return (
     <div>
       <ul>{listItems}</ul>
-      <ShoppingListInput />
+      <ShoppingListInput
+        onAdd={function(item) {
+          const temp = items;
+          setItems([...temp, item]);
+        }}
+      />
     </div>
   );
 }
